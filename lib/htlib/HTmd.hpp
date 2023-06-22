@@ -13,12 +13,12 @@
 #include <Arduino.h>
 
 // define pins(Do not change here)
-const int PinPWM = 12;
-const int PinDirection = 2;
+const int PinPWM = 13;
+const int PinDirection = 4;
 const int PinBrake = 15;
-const int PinDisable = 2;
-const int CANTX = 19;
-const int CANRX = 23;
+const int PinDisable = 14;
+const int CANTX = 17;
+const int CANRX = 16;
 
 // class for motor
 class motor
@@ -69,6 +69,11 @@ public:
         is_enable_motor_ = en;
     }
 
+    int getPWM(void)
+    {
+        return(PWM_);
+    }
+
     void DriveMotor()
     {
         if (is_enable_motor_)
@@ -96,6 +101,7 @@ public:
         {
             digitalWrite(pin_disable_, HIGH);
         }
+        
     }
 };
 
